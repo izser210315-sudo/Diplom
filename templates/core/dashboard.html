@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Персональный кабинет пользователя FormSpace."><title>Личный кабинет — FormSpace</title>
+  <link rel="icon" href="{% static 'core/favicon.svg' %}" type="image/svg+xml"><link rel="stylesheet" href="{% static 'core/styles.css' %}">
+</head>
+<body data-page="cabinet" class="app-page">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <aside class="sidebar">
+    <a class="brand" href="/"><span class="brand-mark"></span>FORM<span>SPACE</span></a>
+    <nav aria-label="Разделы кабинета"><button class="side-link active" data-section="overview"><span>◫</span>Обзор</button><button class="side-link" data-section="profile"><span>○</span>Профиль</button><button class="side-link" data-section="chat"><span>◇</span>Обратная связь</button><a class="side-link" href="/"><span>⌂</span>На сайт</a></nav>
+    <button class="side-link logout-button"><span>↪</span>Выйти</button>
+  </aside>
+  <main id="main" class="app-main">
+    <header class="app-topbar"><button class="mobile-menu" aria-label="Открыть меню">Меню</button><div><p class="eyebrow">Личный кабинет</p><h1>Здравствуйте, <span id="user-first-name">пользователь</span></h1></div><div class="avatar" id="avatar">FS</div></header>
+
+    <section class="app-section active" data-panel="overview">
+      <div class="dashboard-grid">
+        <article class="feature-card wide"><p class="eyebrow">Текущий фокус</p><h2>Развивайте форму,<br>не добавляйте шум.</h2><p>Персональное пространство помогает сосредоточиться на главном: профиле, предпочтениях и связи с куратором.</p><div class="progress-row"><span>Заполнение профиля</span><strong id="profile-progress">70%</strong></div><div class="progress-track"><i id="profile-progress-bar" style="width:70%"></i></div></article>
+        <article class="metric-card"><span>01</span><p>активный профиль</p></article>
+        <article class="metric-card accent"><span id="message-count">0</span><p>сообщений в чате</p></article>
+        <article class="tip-card wide"><div class="cube-mini" aria-hidden="true"></div><div><p class="eyebrow">Подсказка</p><h3>Настройте интерфейс под себя</h3><p>Выберите тему, акцентный цвет и плотность блоков. Настройки сохраняются в базе данных.</p><button class="text-link jump-profile">Открыть настройки</button></div></article>
+      </div>
+    </section>
+
+    <section class="app-section" data-panel="profile">
+      <div class="page-intro"><p class="eyebrow">Персонализация</p><h2>Ваш профиль и интерфейс</h2><p>Изменения сохраняются в базе и применяются при каждом входе.</p></div>
+      <form id="profile-form" class="settings-grid">
+        <article class="settings-card identity-card"><h3>Профиль</h3><label>Имя<input name="name" minlength="2" maxlength="80" required></label><label>О себе<textarea name="bio" maxlength="280" rows="5" placeholder="Расскажите о своих интересах в 3D"></textarea></label></article>
+        <article class="settings-card"><h3>Оформление</h3><fieldset><legend>Тема</legend><div class="choice-grid"><label class="choice"><input type="radio" name="theme" value="dark"><span>Тёмная</span></label><label class="choice"><input type="radio" name="theme" value="light"><span>Светлая</span></label></div></fieldset><fieldset><legend>Акцент</legend><div class="swatches"><label><input type="radio" name="accent" value="violet"><span class="swatch violet" title="Фиолетовый"></span></label><label><input type="radio" name="accent" value="cyan"><span class="swatch cyan" title="Голубой"></span></label><label><input type="radio" name="accent" value="amber"><span class="swatch amber" title="Янтарный"></span></label></div></fieldset><fieldset><legend>Плотность</legend><select name="density"><option value="comfortable">Комфортная</option><option value="compact">Компактная</option></select></fieldset><button class="button button-primary" type="submit">Сохранить изменения</button><p class="form-status" role="status"></p></article>
+      </form>
+    </section>
+
+    <section class="app-section" data-panel="chat">
+      <div class="page-intro"><p class="eyebrow">Обратная связь</p><h2>Чат с куратором</h2><p>Задайте вопрос по платформе или оставьте предложение.</p></div>
+      <article class="chat-card"><header><div><span class="online-dot"></span><strong>Куратор FormSpace</strong><p>Ответим в рабочее время</p></div></header><div class="messages" id="messages" aria-live="polite"></div><form id="message-form" class="message-form"><label class="sr-only" for="message-input">Сообщение</label><textarea id="message-input" name="message" rows="2" maxlength="2000" placeholder="Напишите сообщение…" required></textarea><button class="button button-primary" type="submit">Отправить</button></form></article>
+    </section>
+  </main>
+  <script src="{% static 'core/app.js' %}?v=django3" defer></script><script src="{% static 'core/dashboard.js' %}?v=django3" defer></script>
+</body>
+</html>

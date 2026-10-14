@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Панель администратора FormSpace."><title>Администрирование — FormSpace</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="admin" class="app-page admin-page">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <aside class="sidebar"><a class="brand" href="/"><span class="brand-mark"></span>FORM<span>SPACE</span></a><nav aria-label="Разделы админ-панели"><button class="side-link active" data-section="analytics"><span>⌁</span>Аналитика</button><button class="side-link" data-section="users"><span>○</span>Пользователи</button><button class="side-link" data-section="support"><span>◇</span>Сообщения</button><a class="side-link" href="/"><span>⌂</span>На сайт</a></nav><button class="side-link logout-button"><span>↪</span>Выйти</button></aside>
+  <main id="main" class="app-main">
+    <header class="app-topbar"><button class="mobile-menu" aria-label="Открыть меню">Меню</button><div><p class="eyebrow">Панель администратора</p><h1>Центр управления</h1></div><div class="avatar">AD</div></header>
+    <section class="app-section active" data-panel="analytics">
+      <div class="stats-row"><article><p>Просмотры</p><strong id="stat-views">—</strong><small>за всё время</small></article><article><p>Посетители</p><strong id="stat-visitors">—</strong><small>уникальные</small></article><article><p>Пользователи</p><strong id="stat-users">—</strong><small>зарегистрировано</small></article><article class="accent"><p>Новые сообщения</p><strong id="stat-unread">—</strong><small>ждут ответа</small></article></div>
+      <div class="admin-grid"><article class="chart-card"><div class="card-title"><div><p class="eyebrow">7 дней</p><h2>Динамика посещений</h2></div></div><div class="bar-chart" id="visits-chart" aria-label="График посещений за 7 дней"></div></article><article class="chart-card"><div class="card-title"><div><p class="eyebrow">Контент</p><h2>Популярные страницы</h2></div></div><div id="popular-pages" class="page-bars"></div></article></div>
+    </section>
+    <section class="app-section" data-panel="users"><div class="page-intro"><p class="eyebrow">Аудитория</p><h2>Пользователи</h2><p>Зарегистрированные аккаунты и активность обратной связи.</p></div><div class="table-card"><table><thead><tr><th>Пользователь</th><th>Роль</th><th>Сообщения</th><th>Регистрация</th></tr></thead><tbody id="users-table"></tbody></table></div></section>
+    <section class="app-section" data-panel="support"><div class="page-intro"><p class="eyebrow">Поддержка</p><h2>Диалоги</h2><p>Выберите пользователя и ответьте на его сообщение.</p></div><div class="support-layout"><aside class="conversation-list" id="conversation-list"></aside><article class="chat-card admin-chat"><header id="chat-user"><strong>Выберите диалог</strong></header><div class="messages" id="admin-messages"></div><form id="admin-message-form" class="message-form"><label class="sr-only" for="admin-message-input">Ответ</label><textarea id="admin-message-input" rows="2" maxlength="2000" placeholder="Напишите ответ…" required disabled></textarea><button class="button button-primary" type="submit" disabled>Ответить</button></form></article></div></section>
+  </main>
+  <script src="/app.js" defer></script><script src="/admin.js" defer></script>
+</body>
+</html>

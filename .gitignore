@@ -1,0 +1,12 @@
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+.env
+.venv/
+.packages/
+.packages_local/
+.packages_vendor/
+staticfiles/
+__pycache__/
+*.py[cod]
+

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Вход и регистрация в FormSpace."><title>Вход — FormSpace</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="login" class="auth-page">
+  <a class="skip-link" href="#main">К форме входа</a>
+  <header class="site-header compact-header"><a class="brand" href="/"><span class="brand-mark"></span>FORM<span>SPACE</span></a><a class="text-link" href="/">На главную</a></header>
+  <main id="main" class="auth-layout">
+    <section class="auth-art" aria-hidden="true"><div class="auth-object"><i></i><i></i><i></i></div><p>BUILD / SHAPE / RENDER</p></section>
+    <section class="auth-panel">
+      <div class="auth-box">
+        <p class="eyebrow">Личное пространство</p><h1>Добро пожаловать</h1><p class="muted">Войдите, чтобы открыть персональный кабинет и чат.</p>
+        <div class="tabs" role="tablist" aria-label="Выбор формы">
+          <button class="tab active" role="tab" aria-selected="true" data-tab="login">Вход</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="register">Регистрация</button>
+        </div>
+        <form id="login-form" class="form-stack" data-form="login">
+          <label>Email<input type="email" name="email" autocomplete="email" required value="user@formspace.local"></label>
+          <label>Пароль<input type="password" name="password" autocomplete="current-password" required value="User123!"></label>
+          <button class="button button-primary" type="submit">Войти</button>
+          <p class="form-status" role="status"></p>
+        </form>
+        <form id="register-form" class="form-stack hidden" data-form="register">
+          <label>Имя<input type="text" name="name" autocomplete="name" minlength="2" maxlength="80" required></label>
+          <label>Email<input type="email" name="email" autocomplete="email" required></label>
+          <label>Пароль<input type="password" name="password" autocomplete="new-password" minlength="8" required><small>Не менее 8 символов</small></label>
+          <button class="button button-primary" type="submit">Создать аккаунт</button>
+          <p class="form-status" role="status"></p>
+        </form>
+        <details class="demo-access"><summary>Демонстрационный доступ</summary><p>Пользователь: user@formspace.local / User123!</p><p>Администратор: admin@formspace.local / Admin123!</p></details>
+      </div>
+    </section>
+  </main>
+  <script src="/app.js" defer></script><script src="/login.js" defer></script>
+</body>
+</html>
